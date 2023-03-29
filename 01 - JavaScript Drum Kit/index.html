@@ -59,6 +59,24 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`); //  <audio data-key="65" src="sounds/clap.wav"></audio>
+    const key = document.querySelector(`.key[data-key="${e.keyCode}"]`); //     <div data-key="76" class="key">
+    if (!audio) return; //if no Audio Stop the function
+    audio.currentTime = 0; // rewind to the Start
+    audio.play(); // play
+    key.classList.add('playing'); // add class css Playing for the different styling
+  }
+
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return ;
+    this.classList.remove('playing'); // this is whatever plays against it, here the actual key. Remove class of playing.
+
+  }
+
+  const keys = document.querySelectorAll('.key');
+  keys.forEach(key =>  key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
 
 </script>
 
