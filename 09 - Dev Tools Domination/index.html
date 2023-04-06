@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Console Tricks!</title>
-  <link rel="icon" href="https://fav.farm/✅" />
+  <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
 
@@ -19,38 +19,45 @@
     }
 
     // Regular
+
     console.log('hello');
 
     // Interpolated
-    console.log('Hello I am a %s string!', '💩');
+
+    console.log('hello I am a ${var}');
 
     // Styled
-    // console.log('%c I am some great text', 'font-size:50px; background:red; text-shadow: 10px 10px 0 blue')
+
+    console.log('%c hello', 'font-size: 50px; background:red;');
+
 
     // warning!
-    console.warn('OH NOOO');
+
+    console.warn('Careful!')
 
     // Error :|
-    console.error('Shit!');
+
+    console.error('Shit!')
 
     // Info
-    console.info('Crocodiles eat 3-4 people per year');
+
+    console.info('You are logged out!')
 
     // Testing
-    const p = document.querySelector('p');
 
-    console.assert(p.classList.contains('ouch'), 'That is wrong!');
+    const p = document.querySelector('p');
+    console.assert(p.classList.contains('ouch'), 'That is wrong!')
 
     // clearing
+
     console.clear();
 
     // Viewing DOM Elements
-    console.log(p);
+
     console.dir(p);
 
-    console.clear();
-
     // Grouping together
+
     dogs.forEach(dog => {
       console.groupCollapsed(`${dog.name}`);
       console.log(`This is ${dog.name}`);
@@ -62,19 +69,9 @@
     // counting
 
     console.count('Wes');
-    console.count('Wes');
-    console.count('Steve');
-    console.count('Steve');
-    console.count('Wes');
-    console.count('Steve');
-    console.count('Wes');
-    console.count('Steve');
-    console.count('Steve');
-    console.count('Steve');
-    console.count('Steve');
-    console.count('Steve');
 
     // timing
+
     console.time('fetching data');
     fetch('https://api.github.com/users/wesbos')
       .then(data => data.json())
@@ -83,7 +80,7 @@
         console.log(data);
       });
 
-    console.table(dogs);
+      console.table(dogs)
 
   </script>
 </body>
