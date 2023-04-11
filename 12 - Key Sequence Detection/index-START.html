@@ -8,6 +8,25 @@
 </head>
 <body>
 <script>
+
+  const pressed = [];
+  const secretCode = "upla";
+
+  window.addEventListener('keyup', (e) => {
+    console.log(e.key);
+    // Everytime someone press a key, we will push it inside the array
+    pressed.push(e.key);
+    // start counting from the end, length of the secretCode //
+    pressed.splice(-secretCode.length -1, pressed.length - secretCode.length);
+    // Check if the array contains the secret code we are looking for //
+    if (pressed.join('').includes(secretCode)) {
+      console.log('Got it!');
+      cornify_add();
+    }
+    console.log(pressed);
+  })
+
+
 </script>
 </body>
 </html>
