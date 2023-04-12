@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
-  <link rel="icon" href="https://fav.farm/✅" />
+  <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
 
@@ -59,24 +59,29 @@
       };
     };
 
+    // Select all the images
     const sliderImages = document.querySelectorAll('.slide-in');
 
-    function checkSlide() {
-      sliderImages.forEach(sliderImage => {
-        // half way through the image
-        const slideInAt = (window.scrollY + window.innerHeight) - sliderImage.height / 2;
-        // bottom of the image
-        const imageBottom = sliderImage.offsetTop + sliderImage.height;
-        const isHalfShown = slideInAt > sliderImage.offsetTop;
-        const isNotScrolledPast = window.scrollY < imageBottom;
-        if (isHalfShown && isNotScrolledPast) {
-          sliderImage.classList.add('active');
+    // Run everytime someone slides
+    function checkSlide(e) {
+      sliderImages.forEach(slideImage => {
+        // innerHeight: pixels where you currently at. slideImage.height / 2 because we want to start at the half of the image
+        const slideInAt = (window.scrollY + window.innerHeight) - slideImage.height / 2;
+        const imageBottom = slideImage.offsetTop + slideImage.height;
+        // greater than the top of where the actual image is:
+        const isHalfShown = slideInAt > slideImage.offsetTop;
+        const isNotScrollPast = window.scrollY < imageBottom;
+        // if it is half schown on the page and we're not scrolled past it, we add the class active
+
+        if(isHalfShown && isNotScrollPast) {
+          slideImage.classList.add('active');
         } else {
-          sliderImage.classList.remove('active');
+          slideImage.classList.remove('active');
         }
       });
-    }
+    };
 
+    // Debounce for performing reasons. Less events
     window.addEventListener('scroll', debounce(checkSlide));
 
   </script>
